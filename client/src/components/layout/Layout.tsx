@@ -7,10 +7,10 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-white">
-      <header className="bg-[#4CAF50] shadow-md">
+      <header className="bg-smartretur-primary shadow-md">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <h2 className="text-xl font-semibold text-white">Instabank</h2>
+            <h2 className="text-xl font-semibold text-white">SmartRetur</h2>
           </div>
         </div>
       </header>

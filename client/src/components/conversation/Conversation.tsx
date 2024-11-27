@@ -77,15 +77,15 @@ export function Conversation() {
   const conversation = useConversation({
     onConnect: () => {
       toast({
-        title: "Welcome to Instabank",
-        description: "How can I assist you with your banking needs today? I can help with loan calculations and savings projections.",
-        className: "bg-[#4CAF50] text-white",
+        title: "Welcome to SmartRetur",
+        description: "How can I assist you with your pallet and return logistics needs today?",
+        className: "bg-smartretur-primary text-white",
       });
     },
     onDisconnect: () => {
       toast({
         title: "Conversation Ended",
-        description: "Thank you for using Instabank AI assistant",
+        description: "Thank you for using SmartRetur AI assistant",
       });
     },
     onMessage: async (props: { message: string; source: Role }) => {
@@ -212,7 +212,7 @@ export function Conversation() {
             <Button
               onClick={startConversation}
               disabled={conversation.status === 'connected' || isProcessing}
-              className="bg-[#4CAF50] hover:bg-[#45a049] text-white shadow-sm"
+              className="bg-smartretur-primary hover:bg-smartretur-accent text-white shadow-sm"
             >
               Start Conversation
             </Button>
@@ -220,14 +220,14 @@ export function Conversation() {
               onClick={stopConversation}
               disabled={conversation.status !== 'connected' || isProcessing}
               variant="outline"
-              className="border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9]"
+              className="border-smartretur-primary text-smartretur-primary hover:bg-smartretur-accent/10"
             >
               End Conversation
             </Button>
           </div>
 
           <div className="text-center space-y-2">
-            <p className="text-sm font-medium text-[#4CAF50]">
+            <p className="text-sm font-medium text-smartretur-primary">
               Status: {conversation.status}
             </p>
             <p className="text-sm text-gray-600">
