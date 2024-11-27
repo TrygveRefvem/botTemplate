@@ -31,7 +31,7 @@ export function Conversation() {
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message,
+        description: typeof error === 'string' ? error : error.message,
       });
     },
   });
