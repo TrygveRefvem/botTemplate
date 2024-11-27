@@ -27,7 +27,7 @@ export function Conversation() {
     onMessage: (message) => {
       console.log('Message:', message);
     },
-    onError: (error) => {
+    onError: (error: Error | string) => {
       toast({
         variant: "destructive",
         title: "Error",
