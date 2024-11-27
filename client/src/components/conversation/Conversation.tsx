@@ -49,10 +49,10 @@ export function Conversation() {
         description: "Thank you for using Instabank AI assistant",
       });
     },
-    onMessage: (message) => {
-      const isUserMessage = message.role === 'user';
+    onMessage: (message: { message: string; source: 'user' | 'assistant' }) => {
+      const isUserMessage = message.source === 'user';
       setMessages(prev => [...prev, {
-        text: message.content,
+        text: message.message,
         isUser: isUserMessage,
         timestamp: new Date()
       }]);
