@@ -14,6 +14,11 @@ interface Message {
   timestamp: Date;
 }
 
+interface FunctionCall {
+  name: string;
+  parameters: Record<string, any>;
+}
+
 export function Conversation() {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
@@ -87,6 +92,43 @@ export function Conversation() {
         title: "Conversation Ended",
         description: "Thank you for using Instabank AI assistant",
       });
+    },
+    functions: [
+      {
+        name: 'calculateLoan',
+        description: 'Calculate loan payments',
+        parameters: {
+          type: 'object',
+          properties: {
+            principal: {
+              type: 'number',
+              description: 'Loan amount in dollars'
+            },
+            annualInterestRate: {
+              type: 'number',
+              description: 'Annual interest rate as a percentage'
+            },
+            years: {
+              type: 'number',
+              description: 'Loan term in years'
+            }
+          },
+          required: ['principal', 'annualInterestRate', 'years']
+        }
+      }
+    ],
+    onFunctionCall: async ({ name, parameters }) => {
+      if (name === 'calculateLoan') {
+        const result = await handleBankingCalculation('loan', parameters);
+        return `Based on your loan request:
+        - Loan Amount: $${parameters.principal.toLocaleString()}
+        - Interest Rate: ${parameters.annualInterestRate}%
+        - Term: ${parameters.years} years
+        
+        Monthly Payment: $${result.monthlyPayment.toLocaleString()}
+        Total Payment: $${result.totalPayment.toLocaleString()}
+        Total Interest: $${result.totalInterest.toLocaleString()}`;
+      }
     },
     onMessage: async (props: { message: string; source: Role }) => {
       const isUserMessage = props.source === 'user';
