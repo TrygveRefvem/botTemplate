@@ -58,6 +58,18 @@ export function Conversation() {
     }
   };
 
+  const extractLoanParameters = (message: string) => {
+    const amountMatch = message.match(/\$?(\d{1,3}(?:,\d{3})*(?:\.\d{2})?)/);
+    const rateMatch = message.match(/(\d+\.?\d*)%?/g);
+    const yearsMatch = message.match(/(\d+)\s*years?/);
+    
+    return {
+      principal: amountMatch ? parseFloat(amountMatch[1].replace(/,/g, '')) : null,
+      rate: rateMatch ? parseFloat(rateMatch[0]) : null,
+      years: yearsMatch ? parseInt(yearsMatch[1]) : null
+    };
+  };
+
   const extractNumbers = (text: string): number[] => {
     return text.match(/\d+(\.\d+)?/g)?.map(Number) || [];
   };
@@ -91,19 +103,37 @@ export function Conversation() {
       if (isUserMessage) {
         try {
           if (message.includes('loan') || message.includes('mortgage')) {
-            const numbers = extractNumbers(message);
-            if (numbers.length >= 3) {
-              const result = await handleBankingCalculation('loan', {
-                principal: numbers[0],
-                annualInterestRate: numbers[1],
-                years: numbers[2]
-              });
-              
-              setMessages(prev => [...prev, {
-                text: `Based on a loan amount of $${numbers[0]}, an interest rate of ${numbers[1]}%, and a term of ${numbers[2]} years:\n\nMonthly Payment: $${result.monthlyPayment}\nTotal Payment: $${result.totalPayment}\nTotal Interest: $${result.totalInterest}`,
-                isUser: false,
-                timestamp: new Date()
-              }]);
+            const params = extractLoanParameters(message);
+            if (params.principal && params.rate && params.years) {
+              try {
+                const result = await handleBankingCalculation('loan', {
+                  principal: params.principal,
+                  annualInterestRate: params.rate,
+                  years: params.years
+                });
+                
+                const response = `Based on your loan request:
+                - Loan Amount: $${params.principal.toLocaleString()}
+                - Interest Rate: ${params.rate}%
+                - Term: ${params.years} years
+                
+                Monthly Payment: $${result.monthlyPayment.toLocaleString()}
+                Total Payment: $${result.totalPayment.toLocaleString()}
+                Total Interest: $${result.totalInterest.toLocaleString()}`;
+                
+                setMessages(prev => [...prev, {
+                  text: response,
+                  isUser: false,
+                  timestamp: new Date()
+                }]);
+              } catch (error) {
+                console.error('Calculation error:', error);
+                setMessages(prev => [...prev, {
+                  text: 'I apologize, but I encountered an error calculating your loan payment. Please try again with the format: "Calculate a loan for $[amount] at [rate]% for [years] years"',
+                  isUser: false,
+                  timestamp: new Date()
+                }]);
+              }
             }
           } else if (message.includes('savings') || message.includes('investment')) {
             const numbers = extractNumbers(message);
