@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,6 +10,22 @@ import { useConversation } from '@11labs/react';
 export function Conversation() {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
+  const [agentId, setAgentId] = useState<string>('');
+
+  useEffect(() => {
+    fetch('/api/config/elevenlabs')
+      .then(res => res.json())
+      .then(data => {
+        setAgentId(data.agentId);
+      })
+      .catch(error => {
+        toast({
+          variant: "destructive",
+          title: "Configuration Error",
+          description: "Failed to load ElevenLabs configuration",
+        });
+      });
+  }, [toast]);
 
   const conversation = useConversation({
     onConnect: () => {
@@ -41,8 +57,12 @@ export function Conversation() {
       setIsProcessing(true);
       await navigator.mediaDevices.getUserMedia({ audio: true });
       
+      if (!agentId) {
+        throw new Error("ElevenLabs configuration not loaded");
+      }
+      
       await conversation.startSession({
-        agentId: process.env.ELEVENLABS_AGENT_ID || '',
+        agentId: agentId,
       });
     } catch (error) {
       toast({
