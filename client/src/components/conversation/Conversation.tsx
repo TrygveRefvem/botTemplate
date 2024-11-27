@@ -35,11 +35,38 @@ export function Conversation() {
       });
   }, [toast]);
 
+  const handleBankingCalculation = async (type: string, params: any) => {
+    try {
+      const endpoint = type === 'loan' ? '/api/banking/calculate-loan' : '/api/banking/calculate-savings';
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(params),
+      });
+
+      if (!response.ok) {
+        throw new Error('Calculation failed');
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error('Calculation error:', error);
+      throw error;
+    }
+  };
+
+  const extractNumbers = (text: string): number[] => {
+    return text.match(/\d+(\.\d+)?/g)?.map(Number) || [];
+  };
+
   const conversation = useConversation({
     onConnect: () => {
       toast({
         title: "Welcome to Instabank",
-        description: "How can I assist you with your banking needs today?",
+        description: "How can I assist you with your banking needs today? I can help with loan calculations and savings projections.",
         className: "bg-[#4CAF50] text-white",
       });
     },
@@ -49,13 +76,56 @@ export function Conversation() {
         description: "Thank you for using Instabank AI assistant",
       });
     },
-    onMessage: (props: { message: string; source: Role }) => {
+    onMessage: async (props: { message: string; source: Role }) => {
       const isUserMessage = props.source === 'user';
+      const message = props.message.toLowerCase();
+      
+      // Add the message to the transcript
       setMessages(prev => [...prev, {
         text: props.message,
         isUser: isUserMessage,
         timestamp: new Date()
       }]);
+
+      // Handle calculation requests
+      if (isUserMessage) {
+        try {
+          if (message.includes('loan') || message.includes('mortgage')) {
+            const numbers = extractNumbers(message);
+            if (numbers.length >= 3) {
+              const result = await handleBankingCalculation('loan', {
+                principal: numbers[0],
+                annualInterestRate: numbers[1],
+                years: numbers[2]
+              });
+              
+              setMessages(prev => [...prev, {
+                text: `Based on a loan amount of $${numbers[0]}, an interest rate of ${numbers[1]}%, and a term of ${numbers[2]} years:\n\nMonthly Payment: $${result.monthlyPayment}\nTotal Payment: $${result.totalPayment}\nTotal Interest: $${result.totalInterest}`,
+                isUser: false,
+                timestamp: new Date()
+              }]);
+            }
+          } else if (message.includes('savings') || message.includes('investment')) {
+            const numbers = extractNumbers(message);
+            if (numbers.length >= 4) {
+              const result = await handleBankingCalculation('savings', {
+                initialAmount: numbers[0],
+                monthlyDeposit: numbers[1],
+                annualInterestRate: numbers[2],
+                years: numbers[3]
+              });
+              
+              setMessages(prev => [...prev, {
+                text: `Based on an initial amount of $${numbers[0]}, monthly deposits of $${numbers[1]}, an interest rate of ${numbers[2]}%, over ${numbers[3]} years:\n\nFinal Amount: $${result.finalAmount}\nTotal Interest Earned: $${result.totalInterest}\nAverage Monthly Interest: $${result.monthlyInterest}`,
+                isUser: false,
+                timestamp: new Date()
+              }]);
+            }
+          }
+        } catch (error) {
+          console.error('Calculation error:', error);
+        }
+      }
     },
     onError: (error: Error | string) => {
       toast({
