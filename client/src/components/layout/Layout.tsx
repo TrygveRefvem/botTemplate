@@ -10,12 +10,10 @@ export default function Layout({ children }: LayoutProps) {
       <header className="bg-smartretur-primary shadow-md">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <img 
-              src="/src/assets/logo.svg" 
-              alt="SmartRetur Logo" 
-              className="h-8 w-auto"
-              aria-label="SmartRetur - Expert in pallet and return logistics"
-            />
+            <h1 className="text-2xl font-semibold">
+              <span className="text-smartretur-accent">Smart</span>
+              <span className="text-white">Retur</span>
+            </h1>
           </div>
         </div>
       </header>
