@@ -28,8 +28,8 @@ export function AudioVisualizer({ isActive, isSpeaking }: AudioVisualizerProps) 
           : Math.sin(Date.now() * 0.001 + i * 0.1) * 20 + 30;
 
         ctx.fillStyle = isSpeaking 
-          ? 'hsl(215 85% 25%)' 
-          : 'hsl(215 85% 95%)';
+          ? '#4CAF50'
+          : '#E8F5E9';
         
         ctx.fillRect(
           i * barWidth,
@@ -54,7 +54,7 @@ export function AudioVisualizer({ isActive, isSpeaking }: AudioVisualizerProps) 
       ref={canvasRef}
       width={300}
       height={100}
-      className="w-full rounded-lg bg-background"
+      className="w-full rounded-lg bg-white border border-gray-100 shadow-sm"
     />
   );
 }

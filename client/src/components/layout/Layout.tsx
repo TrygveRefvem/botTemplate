@@ -6,8 +6,15 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background/95 to-muted/90">
-      <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white">
+      <header className="bg-[#4CAF50] shadow-md">
+        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center">
+            <h2 className="text-xl font-semibold text-white">Instabank</h2>
+          </div>
+        </div>
+      </header>
+      <main className="min-h-[calc(100vh-4rem)] py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-gray-50/50 to-gray-100/30">
         <div className="max-w-7xl mx-auto">
           {children}
         </div>

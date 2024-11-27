@@ -30,14 +30,15 @@ export function Conversation() {
   const conversation = useConversation({
     onConnect: () => {
       toast({
-        title: "Connected",
-        description: "Ready to start conversation",
+        title: "Welcome to Instabank",
+        description: "How can I assist you with your banking needs today?",
+        className: "bg-[#4CAF50] text-white",
       });
     },
     onDisconnect: () => {
       toast({
-        title: "Disconnected",
-        description: "Conversation ended",
+        title: "Conversation Ended",
+        description: "Thank you for using Instabank AI assistant",
       });
     },
     onMessage: (message) => {
@@ -73,7 +74,7 @@ export function Conversation() {
     } finally {
       setIsProcessing(false);
     }
-  }, [conversation, toast]);
+  }, [conversation, toast, agentId]);
 
   const stopConversation = useCallback(async () => {
     try {
@@ -92,30 +93,31 @@ export function Conversation() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-4">
+      <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100">
         <div className="space-y-4">
           <div className="flex justify-center gap-4">
             <Button
               onClick={startConversation}
               disabled={conversation.status === 'connected' || isProcessing}
-              variant="default"
+              className="bg-[#4CAF50] hover:bg-[#45a049] text-white shadow-sm"
             >
               Start Conversation
             </Button>
             <Button
               onClick={stopConversation}
               disabled={conversation.status !== 'connected' || isProcessing}
-              variant="destructive"
+              variant="outline"
+              className="border-[#4CAF50] text-[#4CAF50] hover:bg-[#E8F5E9]"
             >
               End Conversation
             </Button>
           </div>
 
           <div className="text-center space-y-2">
-            <p className="text-sm font-medium">
+            <p className="text-sm font-medium text-[#4CAF50]">
               Status: {conversation.status}
             </p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-600">
               {conversation.isSpeaking ? 'AI is speaking' : 'AI is listening'}
             </p>
           </div>
