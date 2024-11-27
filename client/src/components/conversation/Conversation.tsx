@@ -5,12 +5,20 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AudioVisualizer } from './AudioVisualizer';
+import { ConversationTranscript } from './ConversationTranscript';
 import { useConversation } from '@11labs/react';
+
+interface Message {
+  text: string;
+  isUser: boolean;
+  timestamp: Date;
+}
 
 export function Conversation() {
   const { toast } = useToast();
   const [isProcessing, setIsProcessing] = useState(false);
   const [agentId, setAgentId] = useState<string>('');
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
     fetch('/api/config/elevenlabs')
@@ -42,7 +50,12 @@ export function Conversation() {
       });
     },
     onMessage: (message) => {
-      console.log('Message:', message);
+      const isUserMessage = message.role === 'user';
+      setMessages(prev => [...prev, {
+        text: message.content,
+        isUser: isUserMessage,
+        timestamp: new Date()
+      }]);
     },
     onError: (error: Error | string) => {
       toast({
@@ -126,6 +139,8 @@ export function Conversation() {
             isActive={conversation.status === 'connected'} 
             isSpeaking={conversation.isSpeaking}
           />
+
+          <ConversationTranscript messages={messages} />
         </div>
       </Card>
     </div>
