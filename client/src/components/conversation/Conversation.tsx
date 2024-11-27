@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { AudioVisualizer } from './AudioVisualizer';
 import { ConversationTranscript } from './ConversationTranscript';
-import { useConversation } from '@11labs/react';
+import { useConversation, Role } from '@11labs/react';
 
 interface Message {
   text: string;
