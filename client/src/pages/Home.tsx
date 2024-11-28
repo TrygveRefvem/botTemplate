@@ -7,10 +7,10 @@ export default function Home() {
       <Card className="max-w-2xl mx-auto p-8 shadow-xl border border-gray-100 bg-white/80 backdrop-blur-sm">
         <div className="space-y-8">
           <div className="text-center space-y-3">
-            <h1 className="text-3xl font-semibold text-center">
-              <span className="text-smartretur-accent">Smart</span>
-              <span className="text-smartretur-primary">Retur</span>
-              <span className="text-smartretur-primary"> AI</span>
+            <h1 className="text-3xl font-semibold text-center flex items-center justify-center gap-1">
+              <span className="text-smartretur-accent tracking-wide">Smart</span>
+              <span className="text-smartretur-primary tracking-wide">Retur</span>
+              <span className="text-smartretur-primary tracking-wide">AI</span>
             </h1>
             <p className="text-gray-600 text-lg">
               Your personal helper in all matters related to the company
