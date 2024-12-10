@@ -12,7 +12,8 @@ export default function Layout({ children }: LayoutProps) {
           <img 
             src="/cooplogo.png" 
             alt="Coop Logo" 
-            className="h-10 absolute top-1/2 -translate-y-1/2"
+            className="h-12 absolute top-1/2 -translate-y-1/2"
+            style={{ objectFit: 'contain' }}
           />
         </div>
       </header>
