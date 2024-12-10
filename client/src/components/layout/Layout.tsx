@@ -13,8 +13,8 @@ export default function Layout({ children }: LayoutProps) {
       <header>
         <div className="bg-white border-b">
           <div className="max-w-7xl mx-auto">
-            <div className="flex items-center h-16 px-4 gap-8">
-              <CoopLogo className="h-6 w-auto text-[#00205B]" />
+            <div className="flex items-center h-16 px-4">
+              <CoopLogo className="h-8 w-auto text-[#00205B]" />
               <div className="relative flex-1 max-w-md">
                 <Input 
                   type="search" 
