@@ -77,9 +77,9 @@ export function Conversation() {
   const conversation = useConversation({
     onConnect: () => {
       toast({
-        title: "Welcome to SmartRetur",
-        description: "How can I assist you with your pallet and return logistics needs today?",
-        className: "bg-smartretur-primary text-white",
+        title: "Welcome to Zeta Display",
+        description: "How can I assist you with digital signage and visual communication today?",
+        className: "bg-primary text-primary-foreground",
       });
     },
     onDisconnect: () => {
@@ -212,7 +212,7 @@ export function Conversation() {
             <Button
               onClick={startConversation}
               disabled={conversation.status === 'connected' || isProcessing}
-              className="bg-smartretur-primary hover:bg-smartretur-accent text-white shadow-sm"
+              className="bg-primary hover:bg-accent text-primary-foreground shadow-sm"
             >
               Start Conversation
             </Button>
@@ -220,14 +220,14 @@ export function Conversation() {
               onClick={stopConversation}
               disabled={conversation.status !== 'connected' || isProcessing}
               variant="outline"
-              className="border-smartretur-primary text-smartretur-primary hover:bg-smartretur-accent/10"
+              className="border-primary text-primary hover:bg-accent/10"
             >
               End Conversation
             </Button>
           </div>
 
           <div className="text-center space-y-2">
-            <p className="text-sm font-medium text-smartretur-primary">
+            <p className="text-sm font-medium text-primary">
               Status: {conversation.status}
             </p>
             <p className="text-sm text-gray-600">
