@@ -8,10 +8,10 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className="min-h-screen bg-background">
-      <header className="bg-primary shadow-md">
-        <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <header style={{ backgroundColor: '#00205B' }} className="shadow-md">
+        <div className="max-w-7xl mx-auto py-3 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <img src={coopLogo} alt="Coop Logo" className="h-10 w-auto" />
+            <img src={coopLogo} alt="Coop Logo" className="h-8 w-auto brightness-0 invert" />
           </div>
         </div>
       </header>

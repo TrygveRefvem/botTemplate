@@ -16,26 +16,26 @@
       "foreground": "#FFFFFF"
     },
     "background": {
-      "DEFAULT": "#00205B",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "muted": {
-      "DEFAULT": "#1A3470",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#F3F4F6",
+      "foreground": "#374151"
     },
     "popover": {
-      "DEFAULT": "#00205B",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "card": {
-      "DEFAULT": "#00205B",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "border": {
-      "DEFAULT": "#1A3470"
+      "DEFAULT": "#E5E7EB"
     },
     "input": {
-      "DEFAULT": "#1A3470"
+      "DEFAULT": "#E5E7EB"
     },
     "ring": {
       "DEFAULT": "#00205B"
