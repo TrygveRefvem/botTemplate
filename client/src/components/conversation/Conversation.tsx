@@ -24,7 +24,7 @@ export function Conversation() {
     fetch('/api/config/elevenlabs')
       .then(res => res.json())
       .then(data => {
-        setAgentId(data.agentId);
+        setAgentId("eUmccuqLPCTOcsZJgrKX");
       })
       .catch(error => {
         toast({
@@ -77,7 +77,7 @@ export function Conversation() {
   const conversation = useConversation({
     onConnect: () => {
       toast({
-        title: "Welcome to Coop AI Assistant",
+        title: "Welcome to Avinor AI Assistant",
         description: "How can I assist you today?",
         className: "bg-primary text-primary-foreground",
       });
@@ -85,7 +85,7 @@ export function Conversation() {
     onDisconnect: () => {
       toast({
         title: "Conversation Ended",
-        description: "Thank you for using Coop AI Assistant",
+        description: "Thank you for using Avinor AI Assistant",
       });
     },
     onMessage: async (props: { message: string; source: Role }) => {
