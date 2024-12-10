@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import coopLogo from "@/assets/coop-logo.svg";
+import coopLogo from "@/assets/cooplogo.png";
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
       <header className="bg-primary shadow-md">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <img src={coopLogo} alt="Coop Logo" className="h-8 w-auto" />
+            <img src={coopLogo} alt="Coop Logo" className="h-10 w-auto" />
           </div>
         </div>
       </header>
