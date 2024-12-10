@@ -8,7 +8,12 @@ export default function Home() {
         <div className="space-y-8">
           <div className="text-center space-y-3">
             <h1 className="text-3xl font-semibold text-center flex items-center justify-center gap-1">
-              <span className="text-primary tracking-wide">Coop AI Assistant</span>
+              <img 
+                src="/cooplogo.png" 
+                alt="Coop Logo" 
+                className="h-16"
+                style={{ objectFit: 'contain' }}
+              />
             </h1>
             <p className="text-muted-foreground text-lg">
               Your intelligent digital assistant
