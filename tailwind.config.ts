@@ -11,46 +11,48 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        smartretur: {
-          primary: "#005C30",
-          secondary: "#4D4D4D",
-          accent: "#27AE60",
-          background: "#FFFFFF",
-          text: "#000000"
+        brand: {
+          primary: "var(--primary)",
+          secondary: "var(--secondary)",
+          accent: "var(--accent)",
+          background: "var(--background)",
+          foreground: "var(--foreground)",
+          muted: "var(--muted)",
+          border: "var(--border)"
         },
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--foreground)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--foreground)",
         },
         primary: {
-          DEFAULT: "#005C30",
-          foreground: "#FFFFFF",
+          DEFAULT: "var(--primary)",
+          foreground: "var(--foreground)",
         },
         secondary: {
-          DEFAULT: "#4D4D4D",
-          foreground: "#FFFFFF",
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--foreground)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--muted)",
+          foreground: "var(--foreground)",
         },
         accent: {
-          DEFAULT: "#27AE60",
-          foreground: "#FFFFFF",
+          DEFAULT: "var(--accent)",
+          foreground: "var(--foreground)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#ff4444",
+          foreground: "var(--foreground)",
         },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "#005C30",
+        border: "var(--border)",
+        input: "var(--muted)",
+        ring: "var(--primary)",
         chart: {
           "1": "hsl(var(--chart-1))",
           "2": "hsl(var(--chart-2))",

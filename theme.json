@@ -1,10 +1,16 @@
 {
-  "variant": "professional",
-  "primary": "#005C30",
-  "secondary": "#4D4D4D",
-  "accent": "#27AE60",
-  "background": "#FFFFFF",
-  "foreground": "#000000",
-  "appearance": "light",
-  "radius": 0.5
+  "name": "zetadisplay",
+  "type": "dark",
+  "colors": {
+    "primary": "#FF5F35",
+    "secondary": "#2A2E29",
+    "accent": "#FF5F35",
+    "background": "#2A2E29",
+    "foreground": "#FFFFFF",
+    "text": "#FFFFFF",
+    "border": "#3A3E39",
+    "muted": "#3A3E39",
+    "ring": "#FF5F35"
+  },
+  "radius": 0.375
 }
