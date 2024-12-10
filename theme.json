@@ -1,7 +1,7 @@
 {
   "name": "avinor",
   "type": "dark",
-  "cssSelector": ".dark",
+  "cssSelector": "html",
   "colors": {
     "primary": {
       "DEFAULT": "#000000",
@@ -16,26 +16,26 @@
       "foreground": "#FFFFFF"
     },
     "background": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "muted": {
-      "DEFAULT": "#1A1A1A",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#F3F3F3",
+      "foreground": "#000000"
     },
     "popover": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "card": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#000000"
     },
     "border": {
-      "DEFAULT": "#333333"
+      "DEFAULT": "#E5E5E5"
     },
     "input": {
-      "DEFAULT": "#1A1A1A"
+      "DEFAULT": "#F3F3F3"
     },
     "ring": {
       "DEFAULT": "#000000"

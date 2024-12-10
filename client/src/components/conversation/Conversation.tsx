@@ -206,13 +206,13 @@ export function Conversation() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-6 bg-white/90 backdrop-blur-sm border border-gray-100">
+      <Card className="p-6 bg-background border-border">
         <div className="space-y-4">
           <div className="flex justify-center gap-4">
             <Button
               onClick={startConversation}
               disabled={conversation.status === 'connected' || isProcessing}
-              className="bg-primary hover:bg-accent text-primary-foreground shadow-sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm"
             >
               Start Conversation
             </Button>
@@ -220,7 +220,7 @@ export function Conversation() {
               onClick={stopConversation}
               disabled={conversation.status !== 'connected' || isProcessing}
               variant="outline"
-              className="border-primary text-primary hover:bg-accent/10"
+              className="border-primary text-primary hover:bg-primary/10"
             >
               End Conversation
             </Button>
@@ -230,7 +230,7 @@ export function Conversation() {
             <p className="text-sm font-medium text-primary">
               Status: {conversation.status}
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-foreground/60">
               {conversation.isSpeaking ? 'AI is speaking' : 'AI is listening'}
             </p>
           </div>
