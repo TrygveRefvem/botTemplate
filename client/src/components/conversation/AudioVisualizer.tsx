@@ -25,11 +25,11 @@ export function AudioVisualizer({ isActive, isSpeaking }: AudioVisualizerProps) 
       for (let i = 0; i < bars; i++) {
         const height = isSpeaking 
           ? Math.random() * canvas.height * 0.8
-          : Math.sin(Date.now() * 0.001 + i * 0.1) * 20 + 30;
+          : isActive ? Math.sin(Date.now() * 0.001 + i * 0.1) * 20 + 30 : 30;
 
         ctx.fillStyle = isSpeaking 
           ? '#FF5F35'
-          : 'rgba(255, 95, 53, 0.2)';
+          : isActive ? 'rgba(255, 95, 53, 0.5)' : 'rgba(255, 95, 53, 0.2)';
         
         ctx.fillRect(
           i * barWidth,

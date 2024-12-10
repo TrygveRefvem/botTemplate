@@ -6,8 +6,8 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen bg-white">
-      <header className="bg-secondary/95 shadow-md">
+    <div className="min-h-screen bg-background">
+      <header className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
             <h1 className="text-2xl font-semibold flex items-center">
