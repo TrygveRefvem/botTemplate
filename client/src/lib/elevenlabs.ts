@@ -6,7 +6,7 @@ interface ElevenLabsConfig {
 export const getElevenLabsConfig = (): ElevenLabsConfig => {
   return {
     apiKey: process.env.ELEVENLABS_API_KEY,
-    agentId: process.env.ELEVENLABS_AGENT_ID || '',
+    agentId: 'DStrRoRZWMGUQlEADkrj',
   };
 };
 
