@@ -77,15 +77,15 @@ export function Conversation() {
   const conversation = useConversation({
     onConnect: () => {
       toast({
-        title: "Welcome to Zeta Display",
-        description: "How can I assist you with digital signage and visual communication today?",
+        title: "Welcome to Zeta Display AI",
+        description: "How can I assist you with your digital signage and visual communication needs today?",
         className: "bg-primary text-primary-foreground",
       });
     },
     onDisconnect: () => {
       toast({
         title: "Conversation Ended",
-        description: "Thank you for using SmartRetur AI assistant",
+        description: "Thank you for using Zeta Display AI assistant",
       });
     },
     onMessage: async (props: { message: string; source: Role }) => {
