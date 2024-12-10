@@ -8,12 +8,10 @@ export default function Home() {
         <div className="space-y-8">
           <div className="text-center space-y-3">
             <h1 className="text-3xl font-semibold text-center flex items-center justify-center gap-1">
-              <span className="text-primary tracking-wide">Zeta</span>
-              <span className="text-foreground tracking-wide">Display</span>
-              <span className="text-accent tracking-wide">AI</span>
+              <span className="text-primary tracking-wide">Coop AI Assistant</span>
             </h1>
             <p className="text-muted-foreground text-lg">
-              Your digital signage and visual communication assistant
+              Your intelligent digital assistant
             </p>
           </div>
           <Conversation />

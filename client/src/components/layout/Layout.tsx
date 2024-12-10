@@ -10,10 +10,7 @@ export default function Layout({ children }: LayoutProps) {
       <header className="bg-white shadow-md">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <div className="flex items-center">
-            <h1 className="text-2xl font-semibold flex items-center">
-              <span className="text-primary tracking-wide">Zeta</span>
-              <span className="text-foreground tracking-wide">Display</span>
-            </h1>
+            <img src="/src/assets/coop-logo.svg" alt="Coop Logo" className="h-8" />
           </div>
         </div>
       </header>
