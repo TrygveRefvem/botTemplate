@@ -28,8 +28,8 @@ export function AudioVisualizer({ isActive, isSpeaking }: AudioVisualizerProps) 
           : Math.sin(Date.now() * 0.001 + i * 0.1) * 20 + 30;
 
         ctx.fillStyle = isSpeaking 
-          ? '#4CAF50'
-          : '#E8F5E9';
+          ? '#FF5F35'
+          : 'rgba(255, 95, 53, 0.2)';
         
         ctx.fillRect(
           i * barWidth,

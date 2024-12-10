@@ -206,7 +206,7 @@ export function Conversation() {
 
   return (
     <div className="space-y-6">
-      <Card className="p-6 bg-white/80 backdrop-blur-sm border-gray-100">
+      <Card className="p-6 bg-card backdrop-blur-sm border-border">
         <div className="space-y-4">
           <div className="flex justify-center gap-4">
             <Button

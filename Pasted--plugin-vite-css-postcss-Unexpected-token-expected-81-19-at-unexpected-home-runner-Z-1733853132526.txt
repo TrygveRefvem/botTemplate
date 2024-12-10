@@ -1,0 +1,41 @@
+[plugin:vite:css] [postcss] Unexpected token, expected "," (81:19)
+    at unexpected (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/util.js:99:15)
+    at expect (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/util.js:86:5)
+    at parseObj (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:759:20)
+    at parseExprAtom (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:553:7)
+    at parseExprSubscripts (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:276:20)
+    at parseMaybeUnary (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:257:20)
+    at parseExprOps (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:185:20)
+    at parseMaybeConditional (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:157:20)
+    at baseParseMaybeAssign (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:142:20)
+    at tsParseMaybeAssignWithoutJSX (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/plugins/typescript.js:1580:45)
+    at tsParseMaybeAssign (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/plugins/typescript.js:1548:12)
+    at parseMaybeAssign (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/expression.js:121:43)
+    at parseExportDefaultExpression (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:1024:34)
+    at parseExport (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:988:5)
+    at parseStatementContent (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:200:9)
+    at parseStatement (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:116:3)
+    at parseBlockBody (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:586:5)
+    at parseTopLevel (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/statement.js:92:3)
+    at parseFile (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/traverser/index.js:17:35)
+    at parse (/home/runner/Zeta-Display/node_modules/sucrase/dist/parser/index.js:26:35)
+    at getSucraseContext (/home/runner/Zeta-Display/node_modules/sucrase/dist/index.js:95:30)
+    at transform (/home/runner/Zeta-Display/node_modules/sucrase/dist/index.js:38:28)
+    at Object.transform (/home/runner/Zeta-Display/node_modules/tailwindcss/lib/lib/load-config.js:38:43)
+    at /home/runner/Zeta-Display/node_modules/jiti/dist/jiti.js:1:242901
+    at opts.transform.Object.assign.Object.assign.Object.assign.legacy (/home/runner/Zeta-Display/node_modules/jiti/dist/jiti.js:1:242722)
+    at transform (/home/runner/Zeta-Display/node_modules/jiti/dist/jiti.js:1:242844)
+    at evalModule (/home/runner/Zeta-Display/node_modules/jiti/dist/jiti.js:1:246228)
+    at jiti (/home/runner/Zeta-Display/node_modules/jiti/dist/jiti.js:1:245241)
+    at /home/runner/Zeta-Display/node_modules/tailwindcss/lib/lib/load-config.js:51:30
+    at loadConfig (/home/runner/Zeta-Display/node_modules/tailwindcss/lib/lib/load-config.js:58:6)
+    at getTailwindConfig (/home/runner/Zeta-Display/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:71:116)
+    at /home/runner/Zeta-Display/node_modules/tailwindcss/lib/lib/setupTrackingContext.js:100:92
+    at /home/runner/Zeta-Display/node_modules/tailwindcss/lib/processTailwindFeatures.js:46:11
+    at plugins (/home/runner/Zeta-Display/node_modules/tailwindcss/lib/plugin.js:38:69)
+    at LazyResult.runOnRoot (/home/runner/Zeta-Display/node_modules/postcss/lib/lazy-result.js:329:16)
+    at LazyResult.runAsync (/home/runner/Zeta-Display/node_modules/postcss/lib/lazy-result.js:258:26)
+    at LazyResult.async (/home/runner/Zeta-Display/node_modules/postcss/lib/lazy-result.js:160:30)
+    at LazyResult.then (/home/runner/Zeta-Display/node_modules/postcss/lib/lazy-result.js:404:17
+Click outside, press Esc key, or fix the code to dismiss.
+You can also disable this overlay by setting server.hmr.overlay to false in vite.config.js.
