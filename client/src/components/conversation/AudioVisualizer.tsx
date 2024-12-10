@@ -54,7 +54,7 @@ export function AudioVisualizer({ isActive, isSpeaking }: AudioVisualizerProps) 
       ref={canvasRef}
       width={300}
       height={100}
-      className="w-full rounded-lg bg-background border-border shadow-sm"
+      className="w-full rounded-lg bg-white border border-gray-100 shadow-sm"
     />
   );
 }
