@@ -12,38 +12,38 @@ export default {
       },
       colors: {
         brand: {
-          primary: "#FF5F35",
-          secondary: "#2A2E29",
-          accent: "#FF5F35",
+          primary: "#00205B",
+          secondary: "#FFFFFF",
+          accent: "#00205B",
           background: "#FFFFFF",
-          foreground: "#2A2E29",
+          foreground: "#00205B",
           muted: "#F4F4F4",
           border: "#E5E5E5"
         },
         background: "#FFFFFF",
-        foreground: "#2A2E29",
+        foreground: "#00205B",
         card: {
-          DEFAULT: "#2A2E29",
+          DEFAULT: "#00205B",
           foreground: "#FFFFFF",
         },
         popover: {
-          DEFAULT: "#2A2E29",
+          DEFAULT: "#00205B",
           foreground: "#FFFFFF",
         },
         primary: {
-          DEFAULT: "#FF5F35",
+          DEFAULT: "#00205B",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#2A2E29",
-          foreground: "#FFFFFF",
+          DEFAULT: "#FFFFFF",
+          foreground: "#00205B",
         },
         muted: {
           DEFAULT: "#F4F4F4",
-          foreground: "#2A2E29",
+          foreground: "#00205B",
         },
         accent: {
-          DEFAULT: "#FF5F35",
+          DEFAULT: "#00205B",
           foreground: "#FFFFFF",
         },
         destructive: {

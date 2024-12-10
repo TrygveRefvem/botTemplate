@@ -1,40 +1,44 @@
 {
-  "name": "zetadisplay",
+  "name": "coop",
   "type": "dark",
   "cssSelector": ".dark",
   "colors": {
     "primary": {
-      "DEFAULT": "#FF5F35",
+      "DEFAULT": "#00205B",
       "foreground": "#FFFFFF"
     },
     "secondary": {
-      "DEFAULT": "#2A2E29",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#00205B"
     },
     "accent": {
-      "DEFAULT": "#FF5F35",
+      "DEFAULT": "#00205B",
       "foreground": "#FFFFFF"
     },
     "background": {
-      "DEFAULT": "#2A2E29",
+      "DEFAULT": "#00205B",
       "foreground": "#FFFFFF"
     },
     "muted": {
-      "DEFAULT": "#3A3E39",
+      "DEFAULT": "#1A3470",
       "foreground": "#FFFFFF"
     },
     "popover": {
-      "DEFAULT": "#2A2E29",
+      "DEFAULT": "#00205B",
+      "foreground": "#FFFFFF"
+    },
+    "card": {
+      "DEFAULT": "#00205B",
       "foreground": "#FFFFFF"
     },
     "border": {
-      "DEFAULT": "#3A3E39"
+      "DEFAULT": "#1A3470"
     },
     "input": {
-      "DEFAULT": "#3A3E39"
+      "DEFAULT": "#1A3470"
     },
     "ring": {
-      "DEFAULT": "#FF5F35"
+      "DEFAULT": "#00205B"
     }
   },
   "borderRadius": {
