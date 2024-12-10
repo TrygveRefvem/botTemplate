@@ -4,32 +4,32 @@
   "cssSelector": "html",
   "colors": {
     "primary": {
-      "DEFAULT": "#000000",
+      "DEFAULT": "#002D5A",
       "foreground": "#FFFFFF"
     },
     "secondary": {
       "DEFAULT": "#FFFFFF",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "accent": {
-      "DEFAULT": "#000000",
+      "DEFAULT": "#002D5A",
       "foreground": "#FFFFFF"
     },
     "background": {
       "DEFAULT": "#FFFFFF",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "muted": {
       "DEFAULT": "#F3F3F3",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "popover": {
       "DEFAULT": "#FFFFFF",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "card": {
       "DEFAULT": "#FFFFFF",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "border": {
       "DEFAULT": "#E5E5E5"
@@ -38,7 +38,7 @@
       "DEFAULT": "#F3F3F3"
     },
     "ring": {
-      "DEFAULT": "#000000"
+      "DEFAULT": "#002D5A"
     }
   },
   "borderRadius": {

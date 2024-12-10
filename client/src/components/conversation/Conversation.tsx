@@ -92,48 +92,37 @@ export function Conversation() {
       const isUserMessage = props.source === 'user';
       const message = props.message.toLowerCase();
       
-      // Add the message to the transcript
       setMessages(prev => [...prev, {
         text: props.message,
         isUser: isUserMessage,
         timestamp: new Date()
       }]);
 
-      // Handle calculation requests
       if (isUserMessage) {
         try {
           if (message.includes('loan') || message.includes('mortgage')) {
             const params = extractLoanParameters(message);
             if (params.principal && params.rate && params.years) {
-              try {
-                const result = await handleBankingCalculation('loan', {
-                  principal: params.principal,
-                  annualInterestRate: params.rate,
-                  years: params.years
-                });
-                
-                const response = `Based on your loan request:
-                - Loan Amount: $${params.principal.toLocaleString()}
-                - Interest Rate: ${params.rate}%
-                - Term: ${params.years} years
-                
-                Monthly Payment: $${result.monthlyPayment.toLocaleString()}
-                Total Payment: $${result.totalPayment.toLocaleString()}
-                Total Interest: $${result.totalInterest.toLocaleString()}`;
-                
-                setMessages(prev => [...prev, {
-                  text: response,
-                  isUser: false,
-                  timestamp: new Date()
-                }]);
-              } catch (error) {
-                console.error('Calculation error:', error);
-                setMessages(prev => [...prev, {
-                  text: 'I apologize, but I encountered an error calculating your loan payment. Please try again with the format: "Calculate a loan for $[amount] at [rate]% for [years] years"',
-                  isUser: false,
-                  timestamp: new Date()
-                }]);
-              }
+              const result = await handleBankingCalculation('loan', {
+                principal: params.principal,
+                annualInterestRate: params.rate,
+                years: params.years
+              });
+              
+              const response = `Based on your loan request:
+              - Loan Amount: $${params.principal.toLocaleString()}
+              - Interest Rate: ${params.rate}%
+              - Term: ${params.years} years
+              
+              Monthly Payment: $${result.monthlyPayment.toLocaleString()}
+              Total Payment: $${result.totalPayment.toLocaleString()}
+              Total Interest: $${result.totalInterest.toLocaleString()}`;
+              
+              setMessages(prev => [...prev, {
+                text: response,
+                isUser: false,
+                timestamp: new Date()
+              }]);
             }
           } else if (message.includes('savings') || message.includes('investment')) {
             const numbers = extractNumbers(message);
@@ -205,44 +194,53 @@ export function Conversation() {
   }, [conversation, toast]);
 
   return (
-    <div className="space-y-6">
-      <Card className="p-6 bg-background border-border">
-        <div className="space-y-4">
-          <div className="flex justify-center gap-4">
-            <Button
-              onClick={startConversation}
-              disabled={conversation.status === 'connected' || isProcessing}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm"
-            >
-              Start Conversation
-            </Button>
-            <Button
-              onClick={stopConversation}
-              disabled={conversation.status !== 'connected' || isProcessing}
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary/10"
-            >
-              End Conversation
-            </Button>
-          </div>
-
-          <div className="text-center space-y-2">
-            <p className="text-sm font-medium text-primary">
-              Status: {conversation.status}
-            </p>
-            <p className="text-sm text-foreground/60">
-              {conversation.isSpeaking ? 'AI is speaking' : 'AI is listening'}
-            </p>
-          </div>
-
-          <AudioVisualizer 
-            isActive={conversation.status === 'connected'} 
-            isSpeaking={conversation.isSpeaking}
-          />
-
-          <ConversationTranscript messages={messages} />
+    <div className="min-h-screen bg-background">
+      <div className="w-full bg-primary py-8">
+        <div className="container mx-auto">
+          <h1 className="text-4xl font-bold text-center text-primary-foreground mb-2">Avinor AI Assistant</h1>
+          <p className="text-xl text-center text-primary-foreground/80">Your intelligent digital assistant</p>
         </div>
-      </Card>
+      </div>
+      
+      <div className="container mx-auto p-6">
+        <Card className="max-w-2xl mx-auto">
+          <div className="p-6 space-y-6">
+            <div className="flex justify-center gap-4">
+              <Button
+                onClick={startConversation}
+                disabled={conversation.status === 'connected' || isProcessing}
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm px-6"
+              >
+                Start Conversation
+              </Button>
+              <Button
+                onClick={stopConversation}
+                disabled={conversation.status !== 'connected' || isProcessing}
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10 px-6"
+              >
+                End Conversation
+              </Button>
+            </div>
+
+            <div className="text-center space-y-2">
+              <p className="text-base text-primary">
+                Status: {conversation.status}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                {conversation.isSpeaking ? 'AI is speaking' : 'AI is listening'}
+              </p>
+            </div>
+
+            <AudioVisualizer 
+              isActive={conversation.status === 'connected'} 
+              isSpeaking={conversation.isSpeaking}
+            />
+
+            <ConversationTranscript messages={messages} />
+          </div>
+        </Card>
+      </div>
     </div>
   );
 }
