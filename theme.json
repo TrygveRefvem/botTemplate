@@ -1,44 +1,44 @@
 {
   "name": "avinor",
-  "type": "dark",
-  "cssSelector": ".dark",
+  "type": "light",
+  "cssSelector": ".light",
   "colors": {
     "primary": {
-      "DEFAULT": "#000000",
+      "DEFAULT": "#002D5A",
       "foreground": "#FFFFFF"
     },
     "secondary": {
       "DEFAULT": "#FFFFFF",
-      "foreground": "#000000"
+      "foreground": "#002D5A"
     },
     "accent": {
-      "DEFAULT": "#000000",
+      "DEFAULT": "#004F9F",
       "foreground": "#FFFFFF"
     },
     "background": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#002D5A"
     },
     "muted": {
-      "DEFAULT": "#1A1A1A",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#F3F4F6",
+      "foreground": "#002D5A"
     },
     "popover": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#002D5A"
     },
     "card": {
-      "DEFAULT": "#000000",
-      "foreground": "#FFFFFF"
+      "DEFAULT": "#FFFFFF",
+      "foreground": "#002D5A"
     },
     "border": {
-      "DEFAULT": "#333333"
+      "DEFAULT": "#E5E7EB"
     },
     "input": {
-      "DEFAULT": "#1A1A1A"
+      "DEFAULT": "#F3F4F6"
     },
     "ring": {
-      "DEFAULT": "#000000"
+      "DEFAULT": "#002D5A"
     }
   },
   "borderRadius": {
