@@ -1,4 +1,4 @@
-# Configure the Azure provider
+# Azure provider configuration
 terraform {
   required_providers {
     azurerm = {
@@ -11,6 +11,7 @@ terraform {
 provider "azurerm" {
   features {}
 }
+
 variable "elevenlabs_api_key" {
   description = "ElevenLabs API Key"
   type        = string
