@@ -18,9 +18,23 @@ IMAGE_TAG="latest"
 echo "Initializing Terraform..."
 terraform init
 
-# Apply Terraform configuration
+# Check for required environment variables
+if [ -z "$ELEVENLABS_API_KEY" ]; then
+    echo "Error: ELEVENLABS_API_KEY environment variable is required"
+    exit 1
+fi
+
+if [ -z "$DATABASE_URL" ]; then
+    echo "Error: DATABASE_URL environment variable is required"
+    exit 1
+fi
+
+# Apply Terraform configuration with variables
 echo "Applying Terraform configuration..."
-terraform apply -auto-approve
+terraform apply -auto-approve \
+  -var="elevenlabs_api_key=${ELEVENLABS_API_KEY}" \
+  -var="database_url=${DATABASE_URL}" \
+  -var="node_env=production"
 
 # Build the Docker image
 echo "Building Docker image..."

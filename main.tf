@@ -12,10 +12,23 @@ provider "azurerm" {
   features {}
 }
 
+# Environment Variables
 variable "elevenlabs_api_key" {
   description = "ElevenLabs API Key"
   type        = string
   sensitive   = true
+}
+
+variable "database_url" {
+  description = "PostgreSQL Database URL"
+  type        = string
+  sensitive   = true
+}
+
+variable "node_env" {
+  description = "Node environment (production/development)"
+  type        = string
+  default     = "production"
 }
 
 
@@ -67,16 +80,24 @@ resource "azurerm_container_app" "app" {
 
       env {
         name  = "NODE_ENV"
-        value = "production"
+        value = var.node_env
       }
       env {
         name = "ELEVENLABS_API_KEY"
         secret_name = "elevenlabs-api-key"
       }
+      env {
+        name = "DATABASE_URL"
+        secret_name = "database-url"
+      }
 
       secret {
         name = "elevenlabs-api-key"
         value = var.elevenlabs_api_key
+      }
+      secret {
+        name = "database-url"
+        value = var.database_url
       }
     }
   }
